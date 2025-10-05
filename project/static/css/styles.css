@@ -1,0 +1,155 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Ensure padding and border are included in width and height */
+}
+ /* Body */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+    line-height: 1.6; /* Improve readability with line spacing */
+}
+
+/* Header */
+header {
+    background-color: #000;
+    padding: 10px 20px;
+    color: white;
+    display: flex;
+    justify-content: space-between; /* Aligns logo and navigation */
+    align-items: center;
+    width: 100%; /* Full width */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Add subtle shadow for header */
+}
+
+/* Navigation Menu */
+nav ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: flex-end; /* Aligns menu items to the right */
+    gap: 20px; /* Spacing between menu items */
+    margin: 0;
+    background-color: #000;
+}
+
+nav ul li {
+    margin: 0;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    padding: 10px 15px;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+    font-size: 1.1rem;
+    border-radius: 5px;
+}
+
+nav ul li a:hover {
+    background-color: #575757;
+}
+
+main {
+    padding-left: 100px;
+}
+
+.container{
+    padding: 10px;
+}
+
+.about-container{
+    padding: 10px;
+    line-height: 2.0em;
+}
+
+/* Full-width content for Home and About pages */
+.full-width {
+    margin: 0;
+    padding: 50px;
+    text-align: left;
+    width: 100%; /* Occupies the full width */
+    box-sizing: border-box; /* Ensures padding does not overflow the container */
+}
+
+/* Title and Description */
+.full-width h2 {
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 15px;
+    padding-bottom: 1000px;
+    
+}
+
+.full-width .description {
+    font-size: 18px;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+.fancy-box {
+    background-color: #e0f7fa;
+    padding: 30px;
+    border: 2px solid #00796b;
+    border-radius: 10px;
+    width: 80%; /* Make the box less wide */
+    max-width: 600px; /* Decreased the max-width */
+    text-align: center;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    margin: 40px auto 20px auto; /* Adjusted the margin to move the box lower */
+    font-size: 1.5rem;
+    font-weight: bold;
+    position: relative; /* For any fancy elements like lines */
+}
+
+.fancy-box::before {
+    content: "You have come to the right spot!";
+    position: absolute;
+    top: -12px; /* Adjusted to bring text slightly down */
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1rem;
+    color: #00796b;
+    background-color: #e0f7fa;
+    padding: 0 10px;
+}
+
+
+/* Button */
+.predict-btn {
+    padding: 10px 20px;
+    background-color: #00796b;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.predict-btn:hover {
+    background-color: #004d40;
+}
+
+/* Footer */
+footer {
+    background-color: #000;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%; /* Footer spans the full width */
+    font-size: 0.9rem;
+}

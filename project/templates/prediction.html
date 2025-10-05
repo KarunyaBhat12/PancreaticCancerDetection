@@ -1,0 +1,244 @@
+<!-- {% extends "base.html" %} -->
+
+{% block content %}
+<style>
+    body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+    line-height: 1.6; /* Improve readability with line spacing */
+}
+
+/* Header */
+header {
+    background-color: #000;
+    padding: 10px 20px;
+    color: white;
+    display: flex;
+    justify-content: space-between; /* Aligns logo and navigation */
+    align-items: center;
+    width: 100%; /* Full width */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Add subtle shadow for header */
+}
+
+/* Navigation Menu */
+nav ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: flex-end; /* Aligns menu items to the right */
+    gap: 20px; /* Spacing between menu items */
+    margin: 0;
+    background-color: #000;
+}
+
+nav ul li {
+    margin: 0;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    padding: 10px 15px;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+    font-size: 1.1rem;
+    border-radius: 5px;
+}
+
+nav ul li a:hover {
+    background-color: #575757;
+}
+
+    form {
+        max-width: 600px;
+        margin: auto;
+        padding: 20px;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        background-color: #f9f9f9;
+    }
+
+    label {
+        font-weight: bold;
+        display: block;
+        margin-bottom: 8px;
+    }
+
+    .input-group {
+        position: relative;
+        margin-bottom: 15px;
+    }
+
+    .input-group input {
+        width: 100%;
+        padding: 8px 40px 8px 8px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+    .input-group button {
+        position: absolute;
+        top: 50%;
+        right: 10px;
+        transform: translateY(-50%);
+        background-color: #007bff;
+        color: white;
+        border: none;
+        padding: 6px 10px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 0.9rem;
+    }
+
+    .input-group button:hover {
+        background-color: #0056b3;
+    }
+
+    button[type="submit"] {
+        width: 100%;
+        padding: 10px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    button[type="submit"]:hover {
+        background-color: #0056b3;
+    }
+
+    footer {
+        background-color: #000;
+        color: white;
+        text-align: center;
+        padding: 2px 0; /* Reduced padding for footer */
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        font-size: 0.9rem;
+        margin: 0;
+    }
+
+    /* Fix scrolling issue */
+    .prediction-container {
+        padding-bottom: 60px; /* Add extra space at the bottom for the footer */
+    }
+
+    .h2{
+        padding: 10px;
+    }
+</style>
+
+
+<div class="prediction-container">
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/prediction">Predict</a></li>
+            <li><a href="/prediction/analyse">Analyse</a></li>
+            <li><a href="/prediction/recommendations">Recommendations</a></li>
+        </ul>
+    </nav>
+    <h2>Pancreatic Cancer Prediction</h2>
+
+    <div id="predict">
+        <form method="POST" action="/prediction">
+            <label for="age">Age:</label>
+            <div class="input-group">
+                <input type="text" id="age" name="age" required>
+                <button type="button" onclick="startVoiceInput('age')">Speak</button>
+            </div>
+
+            <label for="sex">Sex (0: Female, 1: Male):</label>
+            <div class="input-group">
+                <input type="text" id="sex" name="sex" required>
+                <button type="button" onclick="startVoiceInput('sex')">Speak</button>
+            </div>
+
+            <label for="plasma_CA19_9">Plasma CA19.9:</label>
+            <div class="input-group">
+                <input type="text" id="plasma_CA19_9" name="plasma_CA19_9" required>
+                <button type="button" onclick="startVoiceInput('plasma_CA19_9')">Speak</button>
+            </div>
+
+            <label for="creatinine">Creatinine:</label>
+            <div class="input-group">
+                <input type="text" id="creatinine" name="creatinine" required>
+                <button type="button" onclick="startVoiceInput('creatinine')">Speak</button>
+            </div>
+
+            <label for="LYVE1">LYVE1:</label>
+            <div class="input-group">
+                <input type="text" id="LYVE1" name="LYVE1" required>
+                <button type="button" onclick="startVoiceInput('LYVE1')">Speak</button>
+            </div>
+
+            <label for="REG1B">REG1B:</label>
+            <div class="input-group">
+                <input type="text" id="REG1B" name="REG1B" required>
+                <button type="button" onclick="startVoiceInput('REG1B')">Speak</button>
+            </div>
+
+            <label for="TFF1">TFF1:</label>
+            <div class="input-group">
+                <input type="text" id="TFF1" name="TFF1" required>
+                <button type="button" onclick="startVoiceInput('TFF1')">Speak</button>
+            </div>
+
+            <label for="REG1A">REG1A:</label>
+            <div class="input-group">
+                <input type="text" id="REG1A" name="REG1A" required>
+                <button type="button" onclick="startVoiceInput('REG1A')">Speak</button>
+            </div>
+
+            <button type="submit">Predict</button>
+        </form>
+    </div>
+</div>
+
+<script>
+    function startVoiceInput(fieldId) {
+    const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+    recognition.lang = 'en-US';
+
+    recognition.onresult = function (event) {
+        let transcript = event.results[0][0].transcript.trim();
+
+        // Replace "dot" or "point" with a period (.)
+        transcript = transcript.replace(/\b(dot|point)\b/g, '.');
+
+        // Remove any trailing periods
+        transcript = transcript.replace(/\.+$/, '');
+
+        // Validate that the input is a number or a valid decimal
+        if (/^[0-9]+(\.[0-9]+)?$/.test(transcript)) {
+            document.getElementById(fieldId).value = transcript;
+        } else {
+            alert("Invalid input. Please speak numbers or decimals.");
+        }
+    };
+
+    recognition.onerror = function () {
+        alert("Error recognizing speech. Please try again.");
+    };
+
+    recognition.start();
+}
+
+</script>
+
+
+    </div>
+
+</div>
+{% endblock %}

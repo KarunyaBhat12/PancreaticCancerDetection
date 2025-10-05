@@ -1,0 +1,181 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    overflow-x: hidden;
+    line-height: 1.6;
+}
+
+header {
+    background-color: #000;
+    padding: 10px 20px;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: flex-end;
+    gap: 20px;
+    margin: 0;
+    padding: 0;
+    background-color: #000;
+}
+
+nav ul li {
+    margin: 0;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    padding: 10px 15px;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+    font-size: 1.1rem;
+    border-radius: 5px;
+}
+
+nav ul li a:hover {
+    background-color: #575757;
+}
+
+.container {
+    flex: 1;
+    padding: 20px;
+}
+
+.section {
+    margin-bottom: 40px;
+}
+
+.section h2 {
+    text-align: center;
+    color: #333;
+    text-decoration: underline;
+}
+
+/* Do's and Don'ts in the same row */
+.recommendations-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.recommendation-card {
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    background: linear-gradient(to bottom, #ffffff, #d1e7ff);
+    padding: 20px;
+    width: calc(50% - 20px);
+    max-width: 450px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.recommendation-card ul {
+    list-style: disc;
+    padding-left: 20px;
+    line-height: 1.6;
+}
+
+/* FAQ section */
+.faq-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.faq-card {
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    background: linear-gradient(to bottom, #ffffff, #e3f2fd);
+    padding: 20px;
+    width: calc(25% - 20px);
+    min-width: 250px;
+    max-width: 300px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Center last row of FAQ if fewer than 4 */
+@media (max-width: 900px) {
+    .faq-card {
+        width: calc(50% - 20px);
+    }
+}
+@media (max-width: 600px) {
+    .faq-card {
+        width: calc(100% - 20px);
+    }
+}
+</style>
+
+<div class="container">
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/prediction">Predict</a></li>
+            <li><a href="/prediction/analyse">Analyse</a></li>
+            <li><a href="/prediction/recommendations">Recommendations</a></li>
+        </ul>
+    </nav>
+
+    <h1 style="text-align: center; color: #333;">Health Recommendations</h1>
+
+    <!-- Do's and Don'ts in Same Row -->
+    <div class="recommendations-container">
+        <div class="recommendation-card">
+            <h2>Do's</h2>
+            <ul>
+                <li>Eat soft and easy-to-digest foods like soups, fruits, and steamed vegetables.</li>
+                <li>Have small meals throughout the day instead of eating a lot at once.</li>
+                <li>Drink water slowly and stay hydrated.</li>
+                <li>Take your medicines on time, exactly as the doctor says.</li>
+                <li>Do light exercises like walking or gentle stretches to stay active.</li>
+                <li>Rest when you feel tired and get enough sleep every day.</li>
+                <li>Visit your doctor regularly and tell them if you notice any changes in your health.</li>
+                <li>Spend time with your family and friends to feel supported.</li>
+                <li>Keep yourself clean and wash your hands often to avoid getting sick.</li>
+                <li>Maintain a positive mindset and engage in stress-relieving activities.</li>
+            </ul>
+        </div>
+
+        <div class="recommendation-card">
+            <h2>Don'ts</h2>
+            <ul>
+                <li>Avoid eating oily, fried, or spicy foods as they can upset your stomach.</li>
+                <li>Don’t skip meals or eat too much in one go.</li>
+                <li>Stay away from alcohol and sugary drinks.</li>
+                <li>Don’t stop or skip medicines without asking your doctor.</li>
+                <li>Don’t delay medical checkups.</li>
+                <li>Don’t forget to stay hydrated. Dehydration can worsen symptoms.</li>
+                <li>Don’t engage in heavy physical activities that may strain your body.</li>
+                <li>Avoid stress and lack of sleep as they weaken the immune system.</li>
+                <li>Stay away from tobacco and smoking, as they increase health risks.</li>
+                <li>Don’t ignore any sudden changes in your body—always consult a doctor.</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

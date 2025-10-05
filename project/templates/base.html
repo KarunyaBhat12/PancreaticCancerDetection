@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Pancreatic Cancer Predictor{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}"> <!-- Link to your CSS file -->
+</head>
+<body>
+    <header>
+        <nav>
+            {% if show_default_menu %}
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/prediction">Prediction</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/faq">FAQs</a></li>
+            </ul>
+            {% endif %}
+            {% block navigation %}{% endblock %}
+        </nav>
+    </header>
+
+    <!-- Main Content Area -->
+    <div class="main-content">
+        {% block content %}
+        <!-- Content will be injected here from other templates -->
+        {% endblock %}
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Pancreatic Cancer Detection Tool. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>

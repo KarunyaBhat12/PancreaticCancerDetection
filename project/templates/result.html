@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction Result</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: #333;
+            padding: 10px;
+            color: white;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1rem;
+        }
+
+        nav ul li a:hover {
+            text-decoration: underline;
+        }
+
+        .result-box {
+            width: 80%;
+            max-width: 600px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            background-color: #ffffff;
+            text-align: center;
+            position: relative;
+            margin-top: 80px; /* Adjusted for fixed nav */
+        }
+
+        .result-box h2 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+
+        .result-box p.prediction {
+            margin: 0;
+            font-size: 1.5rem; /* Size for prediction result */
+            font-weight: bold; /* Bold prediction */
+        }
+
+        .result-box p.explanation {
+            margin: 0;
+            font-size: 1.2rem; /* Smaller size for explanation */
+            font-weight: normal; /* Normal weight for explanation */
+            text-align: justify; /* Neatly align explanation */
+            margin-top: 15px;
+        }
+
+        .view-more-btn {
+            margin-top: 15px;
+            padding: 10px 15px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+
+        .view-more-btn:hover {
+            background-color: #45a049;
+        }
+
+        .explanation-box {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            display: none; /* Initially hidden */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation bar -->
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/prediction">Predict</a></li>
+            <li><a href="/prediction/analyse">Analyse</a></li>
+            <li><a href="/prediction/recommendations">Recommendations</a></li>  <!-- Absolute path -->
+        </ul>
+    </nav>
+
+    <div class="result-box">
+        <h2>Prediction Result</h2>
+        <!-- Prediction result bold -->
+        <p class="prediction">{{ prediction }}</p>
+
+        <!-- View more button -->
+        <button class="view-more-btn" onclick="toggleExplanation()">View More</button>
+
+        <!-- Explanation box with normal font -->
+        <div id="explanation" class="explanation-box">
+            <p class="explanation">{{ explanation }}</p>
+            <p><strong>The accuracy of prediction is </strong> <b>{{ accuracy }}</b></p>
+            
+        </div>
+    </div>
+
+    <!-- <h2>Model Evaluation Metrics:</h2>
+    <p>{{ accuracy }}</p> -->
+    <!-- <p>{{ precision }}</p>
+    <p>{{ recall }}</p>
+    <p>{{ f1_score }}</p> -->
+
+    <script>
+        function toggleExplanation() {
+            const explanation = document.querySelector("#explanation");
+            const button = document.querySelector(".view-more-btn");
+
+            if (explanation.style.display === "block") {
+                explanation.style.display = "none";
+                button.textContent = "View More";
+            } else {
+                explanation.style.display = "block";
+                button.textContent = "View Less";
+            }
+        }
+    </script>
+
+</body>
+</html>
+
+
+
+
+   

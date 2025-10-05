@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block content %}
+<style>
+    .background-container {
+    background-image: url('/static/images/background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    padding: 20px; filter: brightness(40%)
+}
+</style>
+    <!-- Home Content -->
+    <div class="home-container" style="padding: 20px;">
+        <h2 style="font-family: 'Lumios Marker', serif; font-weight: bold; color: #1a1a1a; text-shadow: 2px 2px 5px rgba(255, 255, 255, 0.7); font-size: 2.5rem;">
+            Welcome to Pancreatic Cancer Detection
+        </h2>
+        <p class="description" style="font-family: 'Georgia', serif; font-size: 1.5rem; font-weight: 200; line-height: 1.8; color: #3b3b3b; text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.5);">
+            Experience an innovative solution for early pancreatic cancer detection, crafted with care and precision to make a difference in healthcare. 
+        </p>
+        <p class="description" style="font-family: 'Georgia', serif; font-size: 1.5rem; font-weight: 200; line-height: 1.8; color: #3b3b3b; text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.5);">
+            By leveraging cutting-edge non-invasive techniques, our project ensures not only accuracy but also simplicity and accessibility, paving the way for a healthier future.
+        </p>
+    
+
+
+        <!-- Fancy Box with Prediction Button -->
+        <div class="fancy-box" style="margin-top: 20px;">
+            <p>Welcome to the ultimate destination you’ve been searching for — where innovation meets simplicity to redefine health solutions like never before.</p>
+            <button class="predict-btn" onclick="window.location.href='/prediction'">Click Here for Prediction</button>
+        </div>
+    </div>
+</div>
+{% endblock %}

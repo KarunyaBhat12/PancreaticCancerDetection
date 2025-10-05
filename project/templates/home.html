@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pancreatic Cancer Predictor</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        form {
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            background-color: #f9f9f9;
+        }
+        label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 8px;
+        }
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center;">Pancreatic Cancer Predictor</h1>
+    <form method="POST" action="/">
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age" required>
+
+        <label for="sex">Sex (0: Female, 1: Male):</label>
+        <input type="number" id="sex" name="sex" required>
+
+        <label for="plasma_CA19_9">Plasma CA19.9:</label>
+        <input type="text" id="plasma_CA19_9" name="plasma_CA19_9" required>
+
+        <label for="creatinine">Creatinine:</label>
+        <input type="text" id="creatinine" name="creatinine" required>
+
+        <label for="LYVE1">LYVE1:</label>
+        <input type="text" id="LYVE1" name="LYVE1" required>
+
+        <label for="REG1B">REG1B:</label>
+        <input type="text" id="REG1B" name="REG1B" required>
+
+        <label for="TFF1">TFF1:</label>
+        <input type="text" id="TFF1" name="TFF1" required>
+
+        <label for="REG1A">REG1A:</label>
+        <input type="text" id="REG1A" name="REG1A" required>
+
+        <button type="submit">Predict</button>
+    </form>
+</body>
+</html>
